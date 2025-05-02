@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ucapan untuk Devi</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bradley Hand', cursive;
+      background-color: #e0d0b0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2vh 3vw;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 4/3;
+      background: url('kartu ucapan estetik kosong vintage coklat.png') no-repeat center/contain;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15% 10%;
+    }
+
+    .text {
+      font-size: 4vw;
+      color: #4b3b2a;
+      line-height: 1.6;
+      white-space: pre-line;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    .text.show {
+      opacity: 1;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 8vw;
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      padding: 1vh 1.5vw;
+      cursor: pointer;
+      z-index: 3;
+      transition: background 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav-left {
+      left: 2vw;
+    }
+
+    .nav-right {
+      right: 2vw;
+    }
+
+    @media (min-width: 768px) {
+      .text {
+        font-size: 1.5rem;
+      }
+
+      .nav-button {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <button class="nav-button nav-left" onclick="prevSlide()">←</button>
+  <div id="slide" class="text"></div>
+  <button class="nav-button nav-right" onclick="nextSlide()">→</button>
+</div>
+
+<script>
+  const slides = [
+    "Bissmillah\nAssalamualaikum Devii..\nini adalah ucapan mas yang kedua. Kalau yang pertama tadi sebetulnya sudah lama mas buat, yaaa mungkin semenjak mas kenal Devi mas mulai iseng deh bikin bikin kayak gitu hehe.",
+    "Dan hari ini tiba waktunya mas kasih ini ke Devii,\nsemoga Devi suka ya hadiah dari mas.\n\nSemangat terus yaa, mas sangat bahagia ketika liat Devi bahagia, dan semoga Devi bahagia terus yaa dengan Dika.",
+    "Jangan menyerah memperjuangkan cinta kalian yaa,\nmas ngerti cinta Devi ke Dika sangat tuluus banget. Dan itu dibuktikan ketika Devi pingin banget merubah Dika menjadi pria yang baik, tidak merokok, lebih peduliin Devi dan selalu menomorsatukan Devi.",
+    "Itu sangat wajar kok. Mas sangat kagum dengan perjuangan Devi. Dan semoga apa yang diharapkan Devi yaitu Dika menjadi pria yang baik lagi, Allah kabulkan yaa.",
+    "Oh iya, mas juga berterima kasih ya,\nkarena sudah hadir di bagian cerita mas.\nMas sekarang mulai mengerti bahwa mencintai seseorang bukan berarti harus memiliki.\n\nTapi dengan melihat Devi bahagia dengan yang lain pun sangat cukup buat mas saat ini. Tapi ketika Devi sedih, mas juga ikut sedih.",
+    "Gak papa kalau capek.\nBisa cerita terus kok sama mas.\nMas siap untuk menerima ocehan keluh kesahnya Devi...",
+    "Dan doain mas ya agar bisa bertemu dengan jodoh yang pas buat mas nantinya hehe.",
+    "Terus semangat belajarnya, ngajinya, ibadahnya.\nDan satu lagi: jangan malu yaa ketika keluar usahain pakai hijabnya.\nMasa iya seorang gadis cantik dengan mudahnya orang menikmati? Sayang doong. Hehe.",
+    "Sekali lagi selamat ulang tahun yang ke-16 tahun ya..\nPerjalanan Devi masih panjang, kejar terus cita-cita Devi dan selalu buat bangga ayah dan ibu Devi.\n\nAssalamualaikum warahmatullahi wabarakatuh"
+  ];
+
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    const slide = document.getElementById('slide');
+    slide.classList.remove('show'); // mulai fade-out
+    setTimeout(() => {
+      slide.textContent = slides[index];
+      slide.classList.add('show');  // fade-in
+    }, 100); // jeda transisi
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+  }
+
+  function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+  }
+
+  // Tampilkan slide pertama dengan efek
+  window.onload = () => {
+    showSlide(currentSlide);
+  };
+</script>
+
+</body>
+</html>
